@@ -11,47 +11,28 @@ import LocalAuthentication
 
 class ViewController: UIViewController {
 
+    var screenAuth: UIView = UIView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
 
-    @IBAction func touchIdAction(_ sender: UIButton) {
-
-        print("hello there!.. You have clicked the touch ID")
-
-        auth()
-    }
-
-    func auth() {
-        let myContext = LAContext()
-        let myLocalizedReasonString = "Biometric Authntication testing !! "
-
-        var authError: NSError?
-        if #available(iOS 8.0, macOS 10.12.1, *) {
-            if myContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
-                myContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: myLocalizedReasonString) { success, evaluateError in
-
-                    DispatchQueue.main.async {
-                        if success {
-                            // User authenticated successfully, take appropriate action
-                            print("Awesome!!... User authenticated successfully")
-                        } else {
-                            // User did not authenticate successfully, look at error and take appropriate action
-                            print("Sorry!!... User did not authenticate successfully")
-                        }
-                    }
-                }
-            } else {
-                // Could not evaluate policy; look at authError and present an appropriate message to user
-                print("Sorry!!.. Could not evaluate policy.")
-            }
-        } else {
-            // Fallback on earlier versions
-
-            print("Ooops!!.. This feature is not supported.")
-        }
+        screenAuth.frame =  CGRect(x: 0, y: 0, width:  UIScreen.main.bounds.width, height:  UIScreen.main.bounds.height)
+        screenAuth.backgroundColor = .red
+        LocalAuthenticationManager.shared.delegate = self
     }
 
 }
 
+extension ViewController: ScreenAuthenticationProtocol {
+    func loginBackgroundScreen() {
+        self.view.addSubview(screenAuth)
+    }
+
+    func logoutBackgroundScreen() {
+        DispatchQueue.main.async {
+            self.screenAuth.removeFromSuperview()
+        }
+    }
+
+
+}

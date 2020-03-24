@@ -41,37 +41,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
-        let context = LAContext()
-
-        context.localizedCancelTitle = "Enter Username/Password"
-
-        // First check if we have the needed hardware support.
-        var error: NSError?
-        if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
-
-            let reason = "Log in to your account"
-            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason ) { success, error in
-
-                if success {
-
-                    // Move to the main thread because a state update triggers UI changes.
-                    DispatchQueue.main.async { [unowned self] in
-                        print("logou")
-                    }
-
-                } else {
-                    print(error?.localizedDescription ?? "Failed to authenticate")
-
-                    // Fall back to a asking for username and password.
-                    // ...
-                }
-            }
-        } else {
-            print(error?.localizedDescription ?? "Can't evaluate policy")
-
-            // Fall back to a asking for username and password.
-            // ...
-        }
+        LocalAuthenticationManager.shared.auth()
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
