@@ -20,6 +20,10 @@ class ViewController: UIViewController {
 
         print("hello there!.. You have clicked the touch ID")
 
+        auth()
+    }
+
+    func auth() {
         let myContext = LAContext()
         let myLocalizedReasonString = "Biometric Authntication testing !! "
 
@@ -47,8 +51,6 @@ class ViewController: UIViewController {
 
             print("Ooops!!.. This feature is not supported.")
         }
-
-
     }
 
 }
