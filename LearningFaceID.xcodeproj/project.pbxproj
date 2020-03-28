@@ -14,6 +14,7 @@
 		CB006195242A7AFF00DAD283 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB006194242A7AFF00DAD283 /* Assets.xcassets */; };
 		CB006198242A7AFF00DAD283 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB006196242A7AFF00DAD283 /* LaunchScreen.storyboard */; };
 		CB0061A0242A940000DAD283 /* LocalAuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB00619F242A940000DAD283 /* LocalAuthenticationManager.swift */; };
+		CB9B2C41242FA56500A16666 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9B2C40242FA56500A16666 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		CB006197242A7AFF00DAD283 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB006199242A7AFF00DAD283 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB00619F242A940000DAD283 /* LocalAuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthenticationManager.swift; sourceTree = "<group>"; };
+		CB9B2C40242FA56500A16666 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +60,13 @@
 		CB00618A242A7AFC00DAD283 /* LearningFaceID */ = {
 			isa = PBXGroup;
 			children = (
+				CB9B2C42242FA85A00A16666 /* Aplication */,
 				CB0061A1242A940B00DAD283 /* Authentication */,
-				CB00618B242A7AFC00DAD283 /* AppDelegate.swift */,
-				CB00618D242A7AFC00DAD283 /* SceneDelegate.swift */,
+				CB9B2C40242FA56500A16666 /* BaseViewController.swift */,
 				CB00618F242A7AFC00DAD283 /* ViewController.swift */,
 				CB006191242A7AFC00DAD283 /* Main.storyboard */,
-				CB006194242A7AFF00DAD283 /* Assets.xcassets */,
 				CB006196242A7AFF00DAD283 /* LaunchScreen.storyboard */,
+				CB006194242A7AFF00DAD283 /* Assets.xcassets */,
 				CB006199242A7AFF00DAD283 /* Info.plist */,
 			);
 			path = LearningFaceID;
@@ -76,6 +78,15 @@
 				CB00619F242A940000DAD283 /* LocalAuthenticationManager.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		CB9B2C42242FA85A00A16666 /* Aplication */ = {
+			isa = PBXGroup;
+			children = (
+				CB00618B242A7AFC00DAD283 /* AppDelegate.swift */,
+				CB00618D242A7AFC00DAD283 /* SceneDelegate.swift */,
+			);
+			path = Aplication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB9B2C41242FA56500A16666 /* BaseViewController.swift in Sources */,
 				CB006190242A7AFC00DAD283 /* ViewController.swift in Sources */,
 				CB00618C242A7AFC00DAD283 /* AppDelegate.swift in Sources */,
 				CB0061A0242A940000DAD283 /* LocalAuthenticationManager.swift in Sources */,

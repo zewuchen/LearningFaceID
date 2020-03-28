@@ -53,8 +53,6 @@ final class LocalAuthenticationManager {
             } else {
                 print(error?.localizedDescription ?? "Can't evaluate policy")
 
-                delegate?.logoutBackgroundScreen()
-
                 // Fall back to a asking for username and password.
                 // ...
             }
